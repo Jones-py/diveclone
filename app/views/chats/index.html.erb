@@ -1,2 +1,16 @@
-<h1>Chats#index</h1>
-<p>Find me in app/views/chats/index.html.erb</p>
+<h1>Chat list</h1>
+<table>
+  <tr>
+    <th>Post</th>
+  </tr>
+    <% @chats.each do |chat| %>
+      <tr>
+        <td><%=chat.post %></td>
+        <td><%=link_to 'view post', chat_path(chat.id) %></td>
+        <td><%=link_to "Edit", edit_chat_path(chat.id), data: { confirm: 'Do you really want to edit it?' } %></td>
+        <td><%=link_to 'Delete', chat_path(chat.id), method: :delete ,data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <%end%>
+</table>
+<br>
+<%=link_to 'Post new blog', new_chat_path%>

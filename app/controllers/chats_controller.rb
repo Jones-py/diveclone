@@ -30,9 +30,13 @@ class ChatsController < ApplicationController
         render :new if @chat.invalid?
      end
 
+     def  edit
+
+     end
+
     def update
       if @chat.update(chat_params)
-        redirect_to chats_path, notice: "I edited the post!"
+        redirect_to chats_path, notice: "Post edited!"
       else
         render :edit
       end

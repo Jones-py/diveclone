@@ -13,8 +13,10 @@
           <% @chats.each do |chat| %>
             <tr>
               <td><%=chat.post %></td>
-              <td><%=link_to 'view post', chat_path(chat.id) %></td>
+              <td><%=link_to 'Post Details', chat_path(chat.id) %></td>
+              <td> </td>
               <td><%=link_to "Edit", edit_chat_path(chat.id), data: { confirm: 'Do you really want to edit it?' } %></td>
+              <td> </td>
               <td><%=link_to 'Delete', chat_path(chat.id), method: :delete ,data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <%end%>

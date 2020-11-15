@@ -1,8 +1,16 @@
-<!-- <h1>Chat list</h1> -->
+<div class="container" id="home-container">
+  <div class="jumbotron text-center text-white">
+  
+    <%= link_to "Sign up!", "#", class: "btn btn-success btn-lg" %>
+  </div>
+</div>
 <p><%=notice%></p>
+
+<%=link_to 'Post new tweet', new_chat_path%>
+
 <table>
   <tr>
-    <th>Posts Timeline</th>
+    <h3>Timelineth</h3>
   </tr>
     <% @chats.each do |chat| %>
       <tr>
@@ -14,4 +22,3 @@
     <%end%>
 </table>
 <br>
-<%=link_to 'Post new blog', new_chat_path%>

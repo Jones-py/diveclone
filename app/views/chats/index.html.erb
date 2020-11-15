@@ -1,24 +1,24 @@
 <div class="container" id="home-container">
-  <div class="jumbotron text-center text-white">
-  
+  <div class="jumbotron text-center text-blue">
+    <p><%=notice%></p><br>
+
     <%= link_to "Sign up!", "#", class: "btn btn-success btn-lg" %>
+    <br>
+    <!-- <div class="top" id="move"> -->
+    <%=link_to 'Post new tweet', new_chat_path%>
+      <table>
+        <tr>
+          <!-- <h3>Timeline</h3> -->
+        </tr>
+          <% @chats.each do |chat| %>
+            <tr>
+              <td><%=chat.post %></td>
+              <td><%=link_to 'view post', chat_path(chat.id) %></td>
+              <td><%=link_to "Edit", edit_chat_path(chat.id), data: { confirm: 'Do you really want to edit it?' } %></td>
+              <td><%=link_to 'Delete', chat_path(chat.id), method: :delete ,data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <%end%>
+      </table>
+    <!-- </div> -->
   </div>
 </div>
-<p><%=notice%></p>
-
-<%=link_to 'Post new tweet', new_chat_path%>
-
-<table>
-  <tr>
-    <h3>Timelineth</h3>
-  </tr>
-    <% @chats.each do |chat| %>
-      <tr>
-        <td><%=chat.post %></td>
-        <td><%=link_to 'view post', chat_path(chat.id) %></td>
-        <td><%=link_to "Edit", edit_chat_path(chat.id), data: { confirm: 'Do you really want to edit it?' } %></td>
-        <td><%=link_to 'Delete', chat_path(chat.id), method: :delete ,data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <%end%>
-</table>
-<br>
